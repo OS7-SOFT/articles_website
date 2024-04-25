@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html style="direction:rtl;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - مقالتي</title>
+    <meta name="description" content="موقع يسمح لك بنشر مقالات ومشاركتها مع الاخرين">
+    <link rel="stylesheet" href="~/Content/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cairo&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,700">
+    <link rel="stylesheet" href="~/Content/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Animation-Cards-1.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Animation-Cards.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Article-Cards.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Article-List.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Black-Navbar.css">
+    <link rel="stylesheet" href="~/Content/assets/css/dh-card-image-left-dark.css">
+    <link rel="stylesheet" href="~/Content/assets/css/dh-navbar-inverse.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Navbar---Apple-1.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Navbar---Apple.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="~/Content/assets/css/News-Cards.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Off-Canvas-Sidebar-Drawer-Navbar.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Responsive-UI-Card-02.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Right-Sidebar.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Sidebar-Menu-1.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Sidebar-Menu.css">
+    <link rel="stylesheet" href="~/Content/assets/css/SIdebar-Responsive-2-1.css">
+    <link rel="stylesheet" href="~/Content/assets/css/SIdebar-Responsive-2.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Sidebar-right-opening.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Social-Icons.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Soft-UI-Aside-Navbar.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Studious-sidebar.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Team-Boxed.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Vertical-Left-SideBar-by-Jigar-Mistry.css">
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+</head>
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
+        <div class="container">
+            @Html.ActionLink("مقالاتي", "Index", "Home", null, new { @class="navbar-brand"  ,style="font-family: Cairo, sans-serif;" })
+            <div class="collapse navbar-collapse text-center" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+
+                    @Html.Partial("_LoginPartial")
+                </ul>
+                <ul class="navbar-nav ms-auto fs-1">
+
+                    <li class="nav-item mx-0 mx-lg-1">@Html.ActionLink("من نحن؟", "AboutUs", "Home", null, new { @class = "nav-link py-3 px-0 px-lg-3 rounded", style = "font-family: Cairo, sans-serif;" })</li>
+                    <li class="nav-item mx-0 mx-lg-1">@Html.ActionLink("ناشرون", "Publishers", "Home", null, new { @class = "nav-link py-3 px-0 px-lg-3 rounded", style = "font-family: Cairo, sans-serif;" })</li>
+                    <li class="nav-item mx-0 mx-lg-1"></li>
+                    <li class="nav-item mx-0 mx-lg-1">@Html.ActionLink("الرئيسية", "Index", "Home", null, new { @class = "nav-link py-3 px-0 px-lg-3 rounded", style = "font-family: Cairo, sans-serif;" })</li>
+                    <li class="nav-item mx-0 mx-lg-1"></li>
+                </ul>
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("لوحة التحكم", "Panel", "Home", null, new { @class = "btn btn-primary", role = "button", style = "font-family: Cairo, sans-serif;" })
+
+                }
+            </div>
+        </div>
+    </nav>
+
+
+    @RenderBody()
+
+
+
+    <footer class="text-center footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4" style="font-family: Cairo, sans-serif;">موقعنا</h4>
+                    <p style="font-family: Cairo, sans-serif;">Clark, MO 65243</p>
+                </div>
+                <div class="col-md-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase" style="font-family: Cairo, sans-serif;">تابعنا لتكون قريب منا</h4>
+                    <ul class="list-inline ">
+                        <li class="list-inline-item "><a class="d-flex justify-content-center align-items-center btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-facebook fa-fw"></i></a></li>
+                        <li class="list-inline-item "><a class="d-flex justify-content-center align-items-center btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-google-plus fa-fw"></i></a></li>
+                        <li class="list-inline-item "><a class="d-flex justify-content-center align-items-center btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-twitter fa-fw"></i></a></li>
+                        <li class="list-inline-item "><a class="d-flex justify-content-center align-items-center btn btn-outline-light text-center btn-social rounded-circle" role="button" href="#"><i class="fa fa-dribbble fa-fw"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="text-uppercase mb-4" style="font-family: Cairo, sans-serif;">من نحن ؟</h4>
+                    <p class="lead mb-0"><span style="font-family: Cairo, sans-serif;">نتيح لك نشر مقالات مع حفظ كامل الحقوق&nbsp;</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="~/Content/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/bs-init-1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="~/Content/assets/js/Off-Canvas-Sidebar-Drawer-Navbar.js"></script>
+    <script src="~/Content/assets/js/freelancer.js"></script>
+    <script src="~/Content/assets/js/Off-Canvas-Sidebar-Drawer-Navbar-1.js"></script>
+    <script src="~/Content/assets/js/Studious-sidebar.js"></script>
+    <script src="~/Content/assets/js/bs-init.js"></script>
+    <script src="~/Content/assets/js/chart.min.js"></script>
+    <script src="~/Content/assets/js/Navbar---Apple.js"></script>
+    <script src="~/Content/assets/js/Right-Sidebar.js"></script>
+    <script src="~/Content/assets/js/Sidebar-Menu.js"></script>
+    <script src="~/Content/assets/js/Sidebar-right-opening.js"></script>
+    <script src="~/Content/assets/js/theme.js"></script>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

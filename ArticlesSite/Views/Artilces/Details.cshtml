@@ -1,0 +1,53 @@
+﻿@model ArticlesSite.Models.Artilce
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-top:100px; margin-bottom:300px;">
+    <h2>تفاصيل المقالة</h2>
+
+    <div >
+
+        <dl class="dl-horizontal form-content">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Content)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Content)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </dt>
+
+            <dd>
+                <img src="~/Uploads/Artilce/@Model.ImageUrl" class="thumbnail"  style="width:100px;height:100px;"/>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Created)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Created)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("تعديل", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("العودة الى القائمة", "Index")
+    </p>
+</div>

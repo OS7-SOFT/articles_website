@@ -1,0 +1,33 @@
+﻿@model  ArticlesSite.ViewModel.HomeViewModel
+
+
+@{
+    ViewBag.Title = "Publishers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-block:100px;">
+    <section class="team-boxed">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center" style="font-family: Cairo, sans-serif;">ناشرونا</h2>
+            </div>
+            <div class="row people">
+                @foreach (var publisher in Model.Publishers)
+                {
+                    <div class="col-md-6 col-lg-4 item" data-aos="zoom-out">
+                        <div class="box">
+                            <img class="rounded-circle" src="~/Uploads/Profile/@publisher.Image">
+                            <h3 class="name">@publisher.UserName</h3>
+                            <p class="title">@publisher.Type</p>
+                            <p class="description">@publisher.AboutYou</p>
+                            <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </section>
+</div>
+

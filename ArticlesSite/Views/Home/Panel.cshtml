@@ -1,0 +1,72 @@
+﻿@model ArticlesSite.ViewModel.HomeViewModel
+
+
+@{
+    ViewBag.Title = "Panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="Cont">
+    <section>
+        <div class="container">
+            <div class=" bg-secondary  p-3 text-center" style="width:fit-content; margin-inline:auto;">
+                <p class=" text-white" style="width:500px; line-height:1.6; font-size:25px;">مرحبا بك في ادارة الموقع يمكنك الاطلاع على عدد المقالات التي تم نشرها في الموقع   </p>
+            </div>
+            <div class="my-3 d-flex justify-content-center gap-1" style="margin-inline:auto;">
+                @Html.ActionLink("ادارة المقالات", "Index", "Artilces", null, new
+                {
+                    @class = "btn btn-default d-block",
+              style = "width:fit-content"
+                })
+                @Html.ActionLink("ادارة الاصناف", "Index", "Categories", null, new
+                {
+                    @class = "btn btn-default d-block ",
+               style = "width:fit-content"
+                })
+            </div>
+        </div>
+    </section>
+    <div class="row space-rows">
+        <div class="col">
+            <div class="card cards-shadown cards-hover" data-aos="flip-left" data-aos-duration="950">
+                <div class="card-header">
+                    <span class="space"><a href="#"><i class="fa fa-cloud-download" id="download-icon-1"></i></a></span>
+                    <div class="cardheader-text">
+                        <h4 id="heading-card-1" style="text-align: center;font-size: 81px;">@Model.Total</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text cardbody-sub-text" style="text-align: center;">عدد المقالات الكلية</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card cards-shadown cards-hover" data-aos="slide-right" data-aos-duration="950">
+                <div class="card-header">
+                    <span class="space"><a href="#"><i class="fa fa-cloud-download" id="download-icon-2"></i></a></span>
+                    <div class="cardheader-text">
+                        <h4 id="heading-card-2" style="text-align: center;font-size: 81px;">@Model.Year</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text cardbody-sub-text" style="text-align: center;">عدد المقالات  لهذه السنة</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card cards-shadown cards-hover" data-aos="flip-up" data-aos-duration="950">
+                <div class="card-header cards-header-hover">
+                    <span class="space"><a href="#"><i class="fa fa-cloud-download" id="download-icon-3"></i></a></span>
+                    <div class="cardheader-text">
+                        <h4 id="heading-card-3" style="text-align: center;font-size: 81px;">@Model.Month</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text sub-text-color"></p>
+                    <p class="card-text cardbody-sub-text" style="text-align: center;">عدد المقالات  لهذه الشهر</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

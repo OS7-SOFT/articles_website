@@ -1,0 +1,16 @@
+﻿@model ArticlesSite.Models.Artilce
+
+
+@{
+    ViewBag.Title = "ReadArticles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container d-flex align-items-center flex-column" style="margin-bottom:150px; margin-top:90px;">
+
+    <h1 class="mb-4">@Model.Name</h1>
+    <img src="~/Uploads/Artilce/@Model.ImageUrl" class="mb-4 thumbnail" style="width:500px; height:260px;" />
+    <p style="font-size:25px;line-height:2.5;text-align:center;">@Model.Content</p>
+    @Html.ActionLink("العودة الى القائمة الرئيسية","Index","Home",null,new {@class= "btn btn-primary " })
+</div>
+

@@ -1,0 +1,46 @@
+﻿@model ArticlesSite.Models.Category
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-top:100px; margin-bottom:300px;">
+    <h2>أنشاء صنف جديد</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal form-content">
+            
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descreption, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Descreption, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Descreption, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="انشاء" class="btn btn-default mx-3" />
+                    @Html.ActionLink("العودة الى القائمة", "Index")
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        
+    </div>
+</div>

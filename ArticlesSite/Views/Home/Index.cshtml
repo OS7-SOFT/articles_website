@@ -1,0 +1,104 @@
+﻿@model ArticlesSite.ViewModel.HomeViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<header class="text-center text-white bg-primary masthead">
+    <div class="container">
+        <img class="img-fluid d-block mx-auto mb-5" src="~/Content/assets/img/profile.png">
+        <h1 style="font-family: Cairo, sans-serif;">مقالاتي</h1>
+        <hr class="star-light">
+        <h2 class="font-weight-light mb-0" style="font-family: Cairo, sans-serif;">مرحبا بك في موقع مقالاتي</h2>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <h2 class="font-weight-light mb-0" style="font-family: Cairo, sans-serif;margin: 11px;font-size: 21px;">&nbsp; :) يسعدنا انضمامك معنا&nbsp;</h2>
+
+            @Html.ActionLink("انضم الان", "Register", "Account", null, new { @class = "text-white btn btn-primary", style = "width: 254.5625px;background: var(--bs-blue);font-family: Cairo, sans-serif;height: 50px;margin: 5px; margin: 15px;" })
+        }
+    </div>
+</header>
+<div class="container">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-secondary navigation-clean-search my-5"
+         style="margin: 20px">
+        <div class="container">
+
+            <div class="collapse navbar-collapse justify-content-center" id="navcol-1">
+                <ul class="navbar-nav">
+                    @foreach (var item in Model.Categories)
+                    {
+
+                        <li class="nav-item">
+                            @Html.ActionLink(item.Name, "Articles", "Home", new { id = item.Id }, new { @class = "mx-3 text-white" })
+                        </li>
+
+                    }
+                </ul>
+            </div>
+
+
+        </div>
+    </nav>
+    <h2 class="text-uppercase text-center text-secondary bounce animated"
+        style="font-family: Cairo, sans-serif;font-size:35px;">
+        اخر المقالات
+    </h2>
+    <hr class="star-dark mb-5 p-0" />
+    @if (User.IsInRole("Admin") || User.IsInRole("Publisher"))
+    {
+        @Html.ActionLink("أضافة مقالة جديدة","Create", "Artilces",null, new {@class="btn btn-primary"})
+    }
+    <div class="row row-cols-3">
+        @foreach (var item in Model.NewArticles)
+        {
+            <div class="col"
+                 data-bss-hover-animate="pulse"
+                 style="margin: 0; margin-top: 10px">
+                <div class="card" style="margin: 10">
+                    <img class="card-img-top w-100 d-block" style="height:300px;"
+                         src="~/Uploads/Artilce/@item.ImageUrl" />
+                    <div class="card-body">
+                        <h4 class="text-center card-title"
+                            style="font-family: Cairo, sans-serif">
+                            @item.Name
+                        </h4>
+                        @Html.ActionLink("قراءة", "ReadArticles", "Home", new { id = item.Id }, new
+                        {
+                            @class = "btn btn-primary float-end"
+                          ,
+                            role = "button"
+                          ,
+                            style = "font-family: Cairo, sans-serif; width: 149.875px"
+                        })
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>
+<section class="text-white bg-primary mt-5" id="about">
+    <div class="container">
+        <h2 class="text-uppercase text-center text-white"
+            style="font-family: Cairo, sans-serif">
+            حول الموقع
+        </h2>
+        <hr class="star-light mb-5" />
+        <div class="row align-items-center">
+            <div class="col">
+                <p class="lead text-center text-white" style="font-family: Cairo, sans-serif">
+                    نحن نوفر لك الدعم الكامل لنشر مقالاتك ومشاركتها مع الاخرين . حيث
+                    ان موقع مقالتي يضمن لك كافة الحقوق للمقالات التي تنشرها&nbsp; على
+                    الموقع&nbsp;
+                </p>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a class="btn btn-outline-light btn-xl" role="button" href="#">
+                <i class="fa fa-american-sign-language-interpreting me-2"></i><span style="font-family: Cairo, sans-serif">اشترك الان وانضم معنا&nbsp;</span>
+            </a>
+        </div>
+    </div>
+</section>
